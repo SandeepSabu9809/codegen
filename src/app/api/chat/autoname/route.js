@@ -9,7 +9,9 @@ export async function POST(req) {
     const { chatId, firstMessage } = await req.json();
 
     const completion = await client.chat.completions.create({
-      model: "gpt-4o-mini", // or groq via openrouter
+      //model: "gpt-4o-mini", // or groq via openrouter
+      //model: "google/gemini-2.5-flash",
+      model: "deepseek/deepseek-chat-v3.1",
       messages: [
         { role: "system", content: "You are a helpful assistant." },
         { role: "user", content: `Summarize this in 5 words or less as a title: ${firstMessage}` },
